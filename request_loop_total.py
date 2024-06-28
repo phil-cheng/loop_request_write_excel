@@ -15,7 +15,7 @@ def send_requests_and_save_responses_loop(url, data, headers, num_requests):
     for i in range(num_requests):
         try:
             cur_page = str(i+1)
-            data = '{"pageSize": 20,"curPage": '+ cur_page +'}'
+            data = '{"accessClass": "com.nazca.themis.common.rpc.student.web.StudentServiceVolunteerCoachQuerier","accessMethod": "queryCollegeFilingUpScoreLines","params": [{"year": "2023","batchCode": "9","provinceCodes": ["11","12","13","14","15","21","22","23","31","32","33","34","35","36","37","41","42","43","44","45","46","50","51","52","53","54","61","62","63","64","65","71","81","82"],"electiveSubject": null,"byScore": null,"byRanking": null,"startScore": null,"endScore": null,"startRank": null,"endRank": null,"keywords": "","pageSize": 20,"curPage": '+ cur_page +'}],"deviceId": ""}'
             # 发送POST请求
             response = requests.post(url, data=data, headers=headers)
             # 获取响应结果
@@ -118,7 +118,7 @@ def export_excel(result_college_list):
 
 
 if __name__ == '__main__':
-    url = "https://www.test.com"
+    url = "https://gk-stu.bjeea.cn/themis-student-service-api/rpc"
     headers = {
         "Accept": "application/json, text/plain, */*",
         "Accept-Encoding": "gzip, deflate, br, zstd",
@@ -126,11 +126,11 @@ if __name__ == '__main__':
         "Connection": "keep-alive",
         "Content-Length": "564",
         "Content-Type": "application/json",
-        "Cookie": "xxxx",
+        "Cookie": "JSESSIONID=e2c8496866fcfde0624a9c598795.stu-node-68-2",
         "Host": "gk-stu.bjeea.cn",
         "Nazca-Rpc-Serialize-Method": "JSON",
-        "Origin": "https://www.test.com",
-        "Referer": "https://www.test.com",
+        "Origin": "https://gk-stu.bjeea.cn",
+        "Referer": "https://gk-stu.bjeea.cn/themis-stu-web/",
         "Sec-Ch-Ua": "\"Not/A)Brand\";v=\"8\", \"Chromium\";v=\"126\", \"Google Chrome\";v=\"126\"",
         "Sec-Ch-Ua-Mobile": "?0",
         "Sec-Ch-Ua-Platform": "\"Windows\"",

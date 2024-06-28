@@ -1,0 +1,2 @@
+# loop_request_write_excel
+循环发送请求获取网页参数后格式化，然后将结果写到本地excel内
